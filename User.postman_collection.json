@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "ea5013c8-0fae-429e-b570-5552025e4538",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12295021"
+	},
+	"item": [
+		{
+			"name": "create only one",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_name\":\"ialonso\",\r\n    \"password\":\"1234\",\r\n    \"roles\":\"ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url_user}}",
+					"host": [
+						"{{base_url_user}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": " Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpYWxvbnNvIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzIxNzE0MDQyLCJleHAiOjE3MjE4MDA0NDJ9.G9UFi4zlRLsetwASClOjeHz6uCtMMiSoqR1hkRbK61M",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url_user}}",
+					"host": [
+						"{{base_url_user}}"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "Get id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url_user}}/ialonso",
+					"host": [
+						"{{base_url_user}}"
+					],
+					"path": [
+						"ialonso"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_name\":\"{{user_name}}\",\n    \"password\":\"{{password}}\",\n    \"roles\":\"{{roles}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url_user}}",
+					"host": [
+						"{{base_url_user}}"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "authenticate admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url_user}}/authenticate?userName=ialonso&password=1234",
+					"host": [
+						"{{base_url_user}}"
+					],
+					"path": [
+						"authenticate"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "ialonso"
+						},
+						{
+							"key": "password",
+							"value": "1234"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authenticate employed",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url_user}}/authenticate?userName=ialonso&password=1234",
+					"host": [
+						"{{base_url_user}}"
+					],
+					"path": [
+						"authenticate"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "ialonso"
+						},
+						{
+							"key": "password",
+							"value": "1234"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url_user",
+			"value": "localhost:8181/v1/users",
+			"type": "string"
+		}
+	]
+}

@@ -18,7 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .cors().and()
                 .authorizeRequests()
-                .antMatchers("/eureka/**").permitAll()  // Allow access to Eureka endpoints without authentication
+                .antMatchers("/eureka/**").permitAll()  // Allow access to Eureka endpoints without authentication// Allow access to Eureka endpoints without authentication
                 .anyRequest().authenticated();
     }
 

@@ -1,0 +1,30 @@
+{
+	"info": {
+		"_postman_id": "baefdc2d-4395-485c-856e-942815894935",
+		"name": "Eureka server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12295021"
+	},
+	"item": [
+		{
+			"name": "obtener las instancias de los servicios conectados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8761/eureka/apps",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8761",
+					"path": [
+						"eureka",
+						"apps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
